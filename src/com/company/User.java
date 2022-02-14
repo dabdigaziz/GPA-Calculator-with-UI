@@ -50,6 +50,5 @@ public class User {
                 ", studentName='" + studentName + '\'' +
                 ", subjects=" + subjects +
                 '}';
-
     }
 }

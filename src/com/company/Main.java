@@ -14,4 +14,5 @@ public class Main {
         AddStudentDetails app = new AddStudentDetails(methods);
         app.start();
     }
+
 }

@@ -18,7 +18,7 @@ public class AddStudentDetails {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Hello user, please enter your name: ");
         String user = scanner.nextLine();
-        System.out.println("Welcom to GPA calculator app" + user + "!");
+        System.out.println("Welcome to GPA calculator app" + user + "!");
 
         while(true){
             System.out.println("1. Add student");
@@ -31,13 +31,27 @@ public class AddStudentDetails {
             int c = scanner.nextInt();
 
             if(c == 1){
-                //add student
-                System.out.println("Enter name and surename: ");
+                User new_user = new User();
+                System.out.println("Enter name and surname: ");
                 String name = scanner.nextLine();
-                System.out.println("Enter number of subject: ");
-                int subjects = scanner.nextInt();
-                System.out.println("Enter subjects: ");
-                String num;
+                new_user.setStudentName(name);
+                scanner.nextLine();
+                System.out.println("Enter number of subjects: ");
+                int num = scanner.nextInt();
+                for(int i = 0; i < num; i++){
+                    Subject subject = new Subject();
+                    System.out.println("Enter name of subject:");
+                    String subject_name = scanner.nextLine();
+                    scanner.nextLine();
+                    System.out.println("Enter credits of subject: ");
+                    int credits = scanner.nextInt();
+                    System.out.println("Enter your grade: ");
+                    int grade = scanner.nextInt();
+                    subject.setSubjectName(subject_name);
+                    subject.setSubjectCredit(credits);
+                    subject.setMark(grade);
+                }
+
             }
             if(c == 4){
                 createTableUsersMenu();
@@ -50,7 +64,7 @@ public class AddStudentDetails {
     public void createTableUsersMenu(){
         controller.createTableUsers();
     }
-    public void createTableSubjectsMenu(){
+    public void createTableSubjectsMenu() {
         controller.createTableSubjects();
     }
 }

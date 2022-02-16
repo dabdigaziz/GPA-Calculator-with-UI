@@ -1,9 +1,12 @@
 package com.company.dbMethods;
 
+import com.company.User;
 import com.company.data.interfaces.IDBConnect;
 import com.company.dbMethods.interfaces.IMethods;
 
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class db_methods implements IMethods {
     private final IDBConnect db;
@@ -139,5 +142,35 @@ public class db_methods implements IMethods {
             }
         }
         return 0;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        Connection con = null;
+        try {
+            con = db.connect();
+            String sql = "SELECT id, username, gpa FROM users";
+            Statement st = con.createStatement();
+
+            ResultSet rs = st.executeQuery(sql);
+            List<User> users = new LinkedList<>();
+            while (rs.next()) {
+                User user = new User();
+                users.add(user);
+            }
+
+            return users;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return null;
     }
 }

@@ -12,7 +12,7 @@ public class DBConnect implements IDBConnect {
         String connectionUrl = "jdbc:postgresql://localhost:5432/gpa_calculator";
         try {
             Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection(connectionUrl, "postgres", "dias");
+            Connection con = DriverManager.getConnection(connectionUrl, "postgres", "admin123");
             return con;
         } catch (Exception e) {
             System.out.println(e);

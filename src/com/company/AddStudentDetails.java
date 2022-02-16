@@ -50,14 +50,19 @@ public class AddStudentDetails {
                     subject.setSubjectName(subject_name);
                     subject.setSubjectCredit(credits);
                     subject.setMark(grade);
+                    new_user.setSubjects(subject);
                 }
-
+                System.out.println(new_user.toString());
             }
+
             if(c == 4){
                 createTableUsersMenu();
             }
             if(c == 5){
                 createTableSubjectsMenu();
+            }
+            else{
+                break;
             }
         }
     }

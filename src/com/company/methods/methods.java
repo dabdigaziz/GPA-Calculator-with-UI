@@ -47,7 +47,7 @@ public class methods {
     public String insertUser(String username, double gpa){
         boolean checked = dbMethods.insertUser(username, gpa);
         if(checked){
-            return "User " + username + "added successfully!";
+            return "User " + username + " added successfully!";
         } else {
             return "User creation failed!";
         }
@@ -65,4 +65,14 @@ public class methods {
             return error.getMessage();
         }
     }
+
+    public String deleteUser(int id){
+        boolean checked = dbMethods.deleteUser(id);
+        if(checked){
+            return "User deleted successfully";
+        } else {
+            return "User deletion failed";
+        }
+    }
+
 }

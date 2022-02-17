@@ -33,9 +33,9 @@ public class AddStudentDetails {
             if(c == 1){
                 User new_user = new User();
                 System.out.println("Enter name and surname: ");
+                scanner.nextLine();
                 String name = scanner.nextLine();
                 new_user.setStudentName(name);
-                scanner.nextLine();
                 System.out.println("Enter number of subjects: ");
                 int num = scanner.nextInt();
                 for(int i = 0; i < num; i++){
@@ -52,8 +52,11 @@ public class AddStudentDetails {
                     subject.setMark(grade);
                     new_user.setSubjects(subject);
                     System.out.println("**************");
-                    System.out.println("Subject | Credits | Grade ");
-                    System.out.println("You added: " + subject.toString());
+                    System.out.println("Your subjects:");
+                    System.out.println("Subject | Credits | Grade");
+                    for(int j = 0; j < new_user.getSubjects().size(); j++){
+                        System.out.println(new_user.getSubjects().get(j).toString());
+                    }
                     System.out.println("**************");
                 }
                 GpaCalculatorClass calculator = new GpaCalculatorClass();
@@ -72,7 +75,7 @@ public class AddStudentDetails {
                 createTableSubjectsMenu();
             }
             if(c == 7){
-                createNewUserMenu("Dias", 3.5);
+                createNewUserMenu("Dias", 3.88);
             }
         }
     }

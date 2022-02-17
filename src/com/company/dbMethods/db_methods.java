@@ -20,7 +20,7 @@ public class db_methods implements IMethods {
         Connection con = null;
         try{
             con = db.connect();
-            PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY, username VARCHAR(256), gpa double precision)");
+            PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY, username VARCHAR(256), gpa float)");
             ps.execute();
             ps.close();
             return true;
@@ -43,7 +43,7 @@ public class db_methods implements IMethods {
         Connection con = null;
         try{
             con = db.connect();
-            PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS subjects(id int, subject_name VARCHAR(256), credits int, grade double precision)");
+            PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS subjects(id int, subject_name VARCHAR(256), credits int, grade float)");
             ps.execute();
             ps.close();
             return true;
@@ -128,8 +128,9 @@ public class db_methods implements IMethods {
             st.setString(1, username);
 
             ResultSet rs = st.executeQuery();
-            System.out.println(rs);
-            System.out.println(rs.getInt(1));
+            if(rs.next()){
+                return rs.getInt("id");
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -145,6 +146,33 @@ public class db_methods implements IMethods {
     }
 
     @Override
+    public boolean deleteUser(int id) {
+        Connection con = null;
+        try {
+            con = db.connect();
+            String sql = "DELETE FROM users WHERE id = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, id);
+            st.executeQuery();
+            String deleteSubjects = "DELETE FROM subjects WHERE id=?";
+            PreparedStatement st2 = con.prepareStatement(deleteSubjects);
+            st2.executeQuery();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    @Override
     public List<User> getAllUsers() {
         Connection con = null;
         try {
@@ -155,7 +183,7 @@ public class db_methods implements IMethods {
             ResultSet rs = st.executeQuery(sql);
             List<User> users = new LinkedList<>();
             while (rs.next()) {
-                User user = new User(rs.getInt("id"), rs.getString("username"), rs.getInt("gpa"));
+                User user = new User(rs.getInt("id"), rs.getString("username"), rs.getDouble("gpa"));
                 users.add(user);
             }
 

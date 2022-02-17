@@ -30,12 +30,19 @@ public class GpaCalculatorClass {
         return 0;
     }
 
-    public GpaCalculatorClass(User user){
+    public Double GpaCalculatorClass(User user){
         double credits=0.0;
-        double subjects=0.0;
-        for(int i = 0; i < user.getSubjects().size(); i++){
-            System.out.println(user);
+        double grades=0.0;
+        try{
+            for(int i = 0; i < user.getSubjects().size(); i++){
+                grades +=  getGradeInFormat(user.getSubjects().get(i).getMark()) * user.getSubjects().get(i).getSubjectCredit();
+                credits +=  user.getSubjects().get(i).getSubjectCredit();
+            }
+            return grades/credits;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
         }
+        return 0.0;
     }
 }
 

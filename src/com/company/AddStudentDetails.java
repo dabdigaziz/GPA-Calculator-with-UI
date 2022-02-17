@@ -73,8 +73,7 @@ public class AddStudentDetails {
     }
 
     public void showAllUsers(){
-        String response = controller.getAllUsers();
-        System.out.println(response);
+        controller.getAllUsers();
     }
 
     public void createNewUserMenu(String username, double GPA){

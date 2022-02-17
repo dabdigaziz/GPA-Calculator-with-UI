@@ -31,9 +31,5 @@ public class Subject{
         this.Grade = Mark;
     }
     Scanner num = new Scanner(System.in);
-
-    @Override
-    public String toString() {
-        return SubjectName + "          " + SubjectCredit + "         " + Grade;
-    }
+    
 }

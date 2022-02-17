@@ -32,6 +32,8 @@ public class Subject{
     }
     Scanner num = new Scanner(System.in);
 
-
-
+    @Override
+    public String toString() {
+        return SubjectName + "          " + SubjectCredit + "         " + Grade;
+    }
 }

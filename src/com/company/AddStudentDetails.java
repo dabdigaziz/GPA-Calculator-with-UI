@@ -41,8 +41,8 @@ public class AddStudentDetails {
                 for(int i = 0; i < num; i++){
                     Subject subject = new Subject();
                     System.out.println("Enter name of subject:");
-                    String subject_name = scanner.nextLine();
                     scanner.nextLine();
+                    String subject_name = scanner.nextLine();
                     System.out.println("Enter credits of subject: ");
                     int credits = scanner.nextInt();
                     System.out.println("Enter your grade: ");
@@ -50,8 +50,12 @@ public class AddStudentDetails {
                     subject.setSubjectName(subject_name);
                     subject.setSubjectCredit(credits);
                     subject.setMark(grade);
+                    new_user.setSubjects(subject);
+                    System.out.println("**************");
+                    System.out.println("           Subject | Credits | Grade ");
+                    System.out.println("You added: " + subject.toString());
+                    System.out.println("**************");
                 }
-
             }
             if(c == 3){
                 showAllUsers();

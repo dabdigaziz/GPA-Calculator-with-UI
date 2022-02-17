@@ -43,10 +43,22 @@ public class AddStudentDetails {
                     System.out.println("Enter name of subject:");
                     scanner.nextLine();
                     String subject_name = scanner.nextLine();
+                    if(subject_name.length() > 150){
+                        System.out.println("Error, dont write letters enough");
+                        break;
+                    }
                     System.out.println("Enter credits of subject: ");
                     int credits = scanner.nextInt();
+                    if(credits >= 10 || credits <= 0){
+                        System.out.println("Error! Credits should be lesser than 10!");
+                        break;
+                    }
                     System.out.println("Enter your grade: ");
                     int grade = scanner.nextInt();
+                    if(grade >= 100 || grade <= 0){
+                        System.out.println("Error! Grade should be lesser than 100 and more than 100!");
+                        break;
+                    }
                     subject.setSubjectName(subject_name);
                     subject.setSubjectCredit(credits);
                     subject.setMark(grade);
@@ -65,6 +77,11 @@ public class AddStudentDetails {
                 insertUser(new_user.getStudentName() , new_user.getStudentGPA());
                 insertSubjects(new_user);
             }
+            if(c == 2){
+                System.out.println("Enter the ID which you want to delete: ");
+                int id = scanner.nextInt();
+                deleteUser(id);
+            }
             if(c == 3){
                 showAllUsers();
             }
@@ -78,6 +95,11 @@ public class AddStudentDetails {
                 createNewUserMenu("Dias", 3.88);
             }
         }
+    }
+
+    public void deleteUser(int id){
+        String response = controller.deleteUser(id);
+        System.out.println(response);
     }
 
     public void insertSubjects(User user){

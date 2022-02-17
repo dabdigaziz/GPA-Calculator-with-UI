@@ -156,6 +156,7 @@ public class db_methods implements IMethods {
             st.executeQuery();
             String deleteSubjects = "DELETE FROM subjects WHERE id=?";
             PreparedStatement st2 = con.prepareStatement(deleteSubjects);
+            st2.setInt(1, id);
             st2.executeQuery();
             return true;
         } catch (SQLException throwables) {

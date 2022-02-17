@@ -30,7 +30,7 @@ public class GpaCalculatorClass {
         return 0;
     }
 
-    public Double GpaCalculatorClass(User user){
+    public Double GpaCalculator(User user){
         double credits=0.0;
         double grades=0.0;
         try{

@@ -36,7 +36,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return SubjectName + " " + SubjectCredit + " " + Grade;
+        return SubjectName + " | " + SubjectCredit + " | " + Grade;
     }
 }
 

@@ -56,6 +56,11 @@ public class AddStudentDetails {
                     System.out.println("You added: " + subject.toString());
                     System.out.println("**************");
                 }
+                GpaCalculatorClass calculator = new GpaCalculatorClass();
+                double userGpa = calculator.GpaCalculator(new_user);
+                new_user.setStudentGPA(userGpa);
+                insertUser(new_user.getStudentName() , new_user.getStudentGPA());
+                insertSubjects(new_user);
             }
             if(c == 3){
                 showAllUsers();
@@ -70,6 +75,16 @@ public class AddStudentDetails {
                 createNewUserMenu("Dias", 3.5);
             }
         }
+    }
+
+    public void insertSubjects(User user){
+        String response = controller.insertSubjects(user);
+        System.out.println(response);
+    }
+
+    public void insertUser(String userName , double userGpa){
+        String response = controller.insertUser(userName , userGpa);
+        System.out.println(response);
     }
 
     public void showAllUsers(){

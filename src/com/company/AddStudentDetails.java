@@ -52,7 +52,7 @@ public class AddStudentDetails {
                     subject.setMark(grade);
                     new_user.setSubjects(subject);
                     System.out.println("**************");
-                    System.out.println("           Subject | Credits | Grade ");
+                    System.out.println("Subject | Credits | Grade ");
                     System.out.println("You added: " + subject.toString());
                     System.out.println("**************");
                 }

@@ -2,7 +2,6 @@ package com.company.methods;
 
 import com.company.User;
 import com.company.dbMethods.interfaces.IMethods;
-import com.company.Main;
 
 import java.util.List;
 
@@ -31,12 +30,17 @@ public class methods {
         }
     }
 
-    public String getAllUsers(){
+    public void getAllUsers(){
         List<User> allUsers = dbMethods.getAllUsers();
         if(allUsers.size() == 0){
-            return "Users was not found! Please add new users.";
+            System.out.println("Users was not found! Please add new users.");
         } else {
-            return allUsers.toString();
+            System.out.println("*******************\n");
+            System.out.println("Top high GPA users\nID | Username | GPA");
+            for(int i = 0; i < allUsers.size(); i++){
+                System.out.println(allUsers.get(i).toString());
+            }
+            System.out.println("\n*******************\n");
         }
     }
 
@@ -49,4 +53,16 @@ public class methods {
         }
     }
 
+    public String insertSubjects(User user) {
+        try {
+            String username = user.getStudentName();
+            int getID = dbMethods.getId(username);
+            for(int i = 0; i < user.getSubjects().size(); i++){
+                dbMethods.insertSubject(getID, user.getSubjects().get(i).getSubjectName(), user.getSubjects().get(i).getSubjectCredit(), user.getSubjects().get(i).getMark());
+            }
+            return "Subjects added successfully";
+        } catch (Exception error){
+            return error.getMessage();
+        }
+    }
 }

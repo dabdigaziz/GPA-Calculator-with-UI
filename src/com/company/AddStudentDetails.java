@@ -51,7 +51,6 @@ public class AddStudentDetails {
                     subject.setSubjectCredit(credits);
                     subject.setMark(grade);
                 }
-
             }
             if(c == 3){
                 showAllUsers();
@@ -69,8 +68,7 @@ public class AddStudentDetails {
     }
 
     public void showAllUsers(){
-        String response = controller.getAllUsers();
-        System.out.println(response);
+        controller.getAllUsers();
     }
 
     public void createNewUserMenu(String username, double GPA){

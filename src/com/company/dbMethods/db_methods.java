@@ -20,7 +20,7 @@ public class db_methods implements IMethods {
         Connection con = null;
         try{
             con = db.connect();
-            PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY, username VARCHAR(256), gpa int)");
+            PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY, username VARCHAR(256), gpa double precision)");
             ps.execute();
             ps.close();
             return true;
@@ -43,7 +43,7 @@ public class db_methods implements IMethods {
         Connection con = null;
         try{
             con = db.connect();
-            PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS subjects(id int, subject_name VARCHAR(256), credits int, grade int)");
+            PreparedStatement ps = con.prepareStatement("CREATE TABLE IF NOT EXISTS subjects(id int, subject_name VARCHAR(256), credits int, grade double precision)");
             ps.execute();
             ps.close();
             return true;

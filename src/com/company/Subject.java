@@ -31,7 +31,5 @@ public class Subject{
         this.Grade = Mark;
     }
     Scanner num = new Scanner(System.in);
-
-
-
+    
 }

@@ -50,22 +50,33 @@ public class AddStudentDetails {
                     subject.setSubjectName(subject_name);
                     subject.setSubjectCredit(credits);
                     subject.setMark(grade);
-                    new_user.setSubjects(subject);
                 }
-                System.out.println(new_user.toString());
-            }
 
+            }
+            if(c == 3){
+                showAllUsers();
+            }
             if(c == 4){
                 createTableUsersMenu();
             }
             if(c == 5){
                 createTableSubjectsMenu();
             }
-            else{
-                break;
+            if(c == 7){
+                createNewUserMenu("Dias", 3.5);
             }
         }
     }
+
+    public void showAllUsers(){
+        String response = controller.getAllUsers();
+        System.out.println(response);
+    }
+
+    public void createNewUserMenu(String username, double GPA){
+        controller.insertUser(username, GPA);
+    }
+
     public void createTableUsersMenu(){
         controller.createTableUsers();
     }

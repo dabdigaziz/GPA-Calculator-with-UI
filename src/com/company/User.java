@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class User {
     private int studentID;
     private String studentName;
+    private int studentGPA;
     private ArrayList<Subject> subjects = new ArrayList<>();
 
 
@@ -16,6 +17,14 @@ public class User {
 
     public void setStudentID(int studentID){
         this.studentID = studentID;
+    }
+
+    public int getStudentGPA() {
+        return studentGPA;
+    }
+
+    public void setStudentGPA(int studentGPA) {
+        this.studentGPA = studentGPA;
     }
 
     public String getStudentName(){
@@ -34,9 +43,10 @@ public class User {
         return subjects;
     }
 
-    public User(int studentID , String studentName){
-        this.studentName = studentName;
+    public User(int studentID , String studentName, int studentGPA){
         this.studentID = studentID;
+        this.studentName = studentName;
+        this.studentGPA = studentGPA;
     }
 
     public User(){
@@ -45,10 +55,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "studentID=" + studentID +
-                ", studentName='" + studentName + '\'' +
-                ", subjects=" + subjects +
-                '}';
+        return studentID + " | " + studentName + " | " + studentGPA;
     }
 }

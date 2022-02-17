@@ -62,15 +62,15 @@ public class db_methods implements IMethods {
     }
 
     @Override
-    public boolean insertUser(String name, int gpa) {
+    public boolean insertUser(String name, double gpa) {
         Connection con = null;
         try {
             con = db.connect();
-            String sql = "INSERT INTO users(name, gpa) VALUES (?,?)";
+            String sql = "INSERT INTO users(username, gpa) VALUES (?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, name);
-            st.setInt(2, gpa);
+            st.setDouble(2, gpa);
 
             st.execute();
             return true;
@@ -155,7 +155,7 @@ public class db_methods implements IMethods {
             ResultSet rs = st.executeQuery(sql);
             List<User> users = new LinkedList<>();
             while (rs.next()) {
-                User user = new User();
+                User user = new User(rs.getInt("id"), rs.getString("username"), rs.getInt("gpa"));
                 users.add(user);
             }
 

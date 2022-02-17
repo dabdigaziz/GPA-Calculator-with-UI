@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class GpaCalculatorClass {
     private double getGradeInFormat(double grade) {
         if (grade > 94) {
@@ -27,5 +29,15 @@ public class GpaCalculatorClass {
         }
         return 0;
     }
+
+    public GpaCalculatorClass(User user){
+        double credits=0.0;
+        double subjects=0.0;
+        for(int i = 0; i < user.getSubjects().size(); i++){
+            System.out.println(user);
+        }
+    }
 }
+
+
 

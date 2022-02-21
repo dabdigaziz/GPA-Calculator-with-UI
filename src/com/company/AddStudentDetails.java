@@ -55,8 +55,8 @@ public class AddStudentDetails {
                     }
                     System.out.println("Enter your grade: ");
                     int grade = scanner.nextInt();
-                    if(grade >= 100 || grade <= 0){
-                        System.out.println("Error! Grade should be lesser than 100 and more than 100!");
+                    if(grade > 100 || grade < 0){
+                        System.out.println("Error! Grade should be lesser than 100 more than 0!");
                         break;
                     }
                     subject.setSubjectName(subject_name);
@@ -90,6 +90,9 @@ public class AddStudentDetails {
             }
             if(c == 5){
                 createTableSubjectsMenu();
+            }
+            if(c == 6){
+                break;
             }
             if(c == 7){
                 createNewUserMenu("Dias", 3.88);

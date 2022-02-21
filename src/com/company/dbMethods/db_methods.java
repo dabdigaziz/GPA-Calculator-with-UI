@@ -178,7 +178,7 @@ public class db_methods implements IMethods {
         Connection con = null;
         try {
             con = db.connect();
-            String sql = "SELECT id, username, gpa FROM users";
+            String sql = "SELECT id, username, gpa FROM users ORDER BY gpa DESC";
             Statement st = con.createStatement();
 
             ResultSet rs = st.executeQuery(sql);

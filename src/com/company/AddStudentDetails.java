@@ -18,7 +18,7 @@ public class AddStudentDetails {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Hello user, please enter your name: ");
         String user = scanner.nextLine();
-        System.out.println("Welcome to GPA calculator app" + user + "!");
+        System.out.println("Welcome to GPA calculator app " + user + "!");
 
         while(true){
             System.out.println("1. Add student");

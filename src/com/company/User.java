@@ -2,6 +2,7 @@ package com.company;
 
 //Nursultan Haimuldin if you see this code, you would be animeshnik!!!
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class User {
@@ -10,6 +11,7 @@ public class User {
     private Double studentGPA;
     private ArrayList<Subject> subjects = new ArrayList<>();
 
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     public int getStudentID(){
         return studentID;
@@ -55,6 +57,6 @@ public class User {
 
     @Override
     public String toString() {
-        return studentID + " | " + studentName + " | " + studentGPA;
+        return studentID + " | " + studentName + " | " + df.format(studentGPA);
     }
 }

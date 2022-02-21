@@ -37,9 +37,9 @@ public class methods {
             System.out.println("Users was not found! Please add new users.");
         } else {
             System.out.println("*******************\n");
-            System.out.println("Top high GPA users\nID | Username | GPA");
+            System.out.println("Top high GPA users\nID | Username | GPA | GPA Description");
             for(int i = 0; i < allUsers.size(); i++){
-                System.out.println(allUsers.get(i).toString());
+                System.out.println(allUsers.get(i).toString() + " | " + getGpaDescription(allUsers.get(i).getStudentGPA()));
             }
             System.out.println("\n*******************\n");
         }

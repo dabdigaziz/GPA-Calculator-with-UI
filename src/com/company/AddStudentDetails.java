@@ -94,9 +94,6 @@ public class AddStudentDetails {
             if(c == 6){
                 break;
             }
-            if(c == 7){
-                createNewUserMenu("Dias", 3.88);
-            }
         }
     }
 

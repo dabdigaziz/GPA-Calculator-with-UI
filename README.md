@@ -1,9 +1,9 @@
 # GPA-Calculator-with-UI
 Our project for OOP Java.
 Team composition:
-1. Abdigazizov Dias
-2. Abidilla Asadulla
-3. Smagulov Aslanbek
+1. Abdigazizov Dias (dabdigaziz)
+2. Abidilla Asadulla (xserofim)
+3. Smagulov Aslanbek (Aslanbek01)
 
 Welcome to GPA calculator app!
 1. Add student (add student and subjects to DB)

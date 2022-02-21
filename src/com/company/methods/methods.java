@@ -75,4 +75,29 @@ public class methods {
         }
     }
 
+    public String getGpaDescription(double gpa) {
+        if (gpa <= 4.0 && gpa >= 3.67) {
+            return "Yes, you are a genius!";
+        } else if (gpa < 3.67 && gpa >= 3.33) {
+            return "You're good";
+        } else if (gpa < 3.33 && gpa>=3.00){
+            return "you have chance to grow";
+        } else if (gpa < 3.00 && gpa >= 2.67) {
+            return "Not bad but you can do better";
+        } else if (gpa < 2.67 && gpa >= 2.33) {
+            return "You can do better";
+        } else if (gpa < 2.33 && gpa >= 2.00) {
+            return "You gotta try";
+        } else if (gpa < 2.00 && gpa >= 1.67) {
+            return "Learn";
+        } else if (gpa < 1.67 && gpa >= 1.33) {
+            return "do your homework";
+        } else if (gpa < 1.33 && gpa >= 1.00) {
+            return "start work";
+        } else if (gpa < 1.00 && gpa >= 0.00) {
+            return "hello sky in the clouds";
+        }
+        return "There will be a holiday on your street too.";
+    }
+
 }

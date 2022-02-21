@@ -65,9 +65,9 @@ public class AddStudentDetails {
                     new_user.setSubjects(subject);
                     System.out.println("**************");
                     System.out.println("Your subjects:");
-                    System.out.println("Subject | Credits | Grade");
+                    System.out.println("Subject | Credits | Grade | GPA Description");
                     for(int j = 0; j < new_user.getSubjects().size(); j++){
-                        System.out.println(new_user.getSubjects().get(j).toString());
+                        System.out.println(new_user.getSubjects().get(j).toString() + " | " + controller.getGpaDescription(new_user.getSubjects().get(j).getMark()));
                     }
                     System.out.println("**************");
                 }
@@ -90,9 +90,6 @@ public class AddStudentDetails {
             }
             if(c == 5){
                 createTableSubjectsMenu();
-            }
-            if(c == 7){
-                createNewUserMenu("Dias", 3.88);
             }
         }
     }

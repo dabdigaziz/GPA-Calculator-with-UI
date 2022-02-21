@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class GpaCalculatorClass {
@@ -30,21 +31,19 @@ public class GpaCalculatorClass {
         return 0;
     }
 
-    public Double GpaCalculator(User user){
-        double credits=0.0;
-        double grades=0.0;
-        try{
-            for(int i = 0; i < user.getSubjects().size(); i++){
-                grades +=  getGradeInFormat(user.getSubjects().get(i).getMark()) * user.getSubjects().get(i).getSubjectCredit();
-                credits +=  user.getSubjects().get(i).getSubjectCredit();
+    public Double GpaCalculator(User user) {
+        double credits = 0.0;
+        double grades = 0.0;
+        try {
+            for (int i = 0; i < user.getSubjects().size(); i++) {
+                grades += getGradeInFormat(user.getSubjects().get(i).getMark()) * user.getSubjects().get(i).getSubjectCredit();
+                credits += user.getSubjects().get(i).getSubjectCredit();
             }
-            return grades/credits;
-        }catch (Exception error){
+            return grades / credits;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
         return 0.0;
     }
+
 }
-
-
-

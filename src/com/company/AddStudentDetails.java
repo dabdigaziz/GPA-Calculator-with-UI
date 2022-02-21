@@ -18,7 +18,7 @@ public class AddStudentDetails {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Hello user, please enter your name: ");
         String user = scanner.nextLine();
-        System.out.println("Welcome to GPA calculator app" + user + "!");
+        System.out.println("Welcome to GPA calculator app " + user + "!");
 
         while(true){
             System.out.println("1. Add student");
@@ -55,8 +55,8 @@ public class AddStudentDetails {
                     }
                     System.out.println("Enter your grade: ");
                     int grade = scanner.nextInt();
-                    if(grade >= 100 || grade <= 0){
-                        System.out.println("Error! Grade should be lesser than 100 and more than 100!");
+                    if(grade > 100 || grade < 0){
+                        System.out.println("Error! Grade should be lesser than 100 more than 0!");
                         break;
                     }
                     subject.setSubjectName(subject_name);
@@ -65,9 +65,9 @@ public class AddStudentDetails {
                     new_user.setSubjects(subject);
                     System.out.println("**************");
                     System.out.println("Your subjects:");
-                    System.out.println("Subject | Credits | Grade | GPA Description");
+                    System.out.println("Subject | Credits | Grade");
                     for(int j = 0; j < new_user.getSubjects().size(); j++){
-                        System.out.println(new_user.getSubjects().get(j).toString() + " | " + controller.getGpaDescription(new_user.getSubjects().get(j).getMark()));
+                        System.out.println(new_user.getSubjects().get(j).toString());
                     }
                     System.out.println("**************");
                 }
@@ -90,6 +90,12 @@ public class AddStudentDetails {
             }
             if(c == 5){
                 createTableSubjectsMenu();
+            }
+            if(c == 6){
+                break;
+            }
+            if(c == 7){
+                createNewUserMenu("Dias", 3.88);
             }
         }
     }

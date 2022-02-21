@@ -3,6 +3,7 @@ package com.company.methods;
 import com.company.User;
 import com.company.dbMethods.interfaces.IMethods;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class methods {
